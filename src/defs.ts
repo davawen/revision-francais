@@ -1,4 +1,4 @@
-export interface Registre {
+export interface Definition {
 	nom: string,
 	description: string,
 	examples: string[]

@@ -1,28 +1,15 @@
 <script lang="ts">
-import type { Registre } from "./defs";
+import type { Definition } from "./defs";
 
-const LCA = "L'auteur cherche à"
+export let registers: Definition[]; 
 
-let registers: Registre[] = [
-	{ nom: "Merveilleux", description: `${LCA} émerveiller le lecteur en faisant intervenir le surnaturel`, examples: [ "Cendrillon" ] },
-	{ nom: "Fantastique", description: `${LCA} susciter le doute ou l'hésitation du lecteur de façon à l'inquiéter`, examples: []},
-	{ nom: "Lyrique", description: `${LCA} faire partager ses sentiments au lecteur. Il faut que ce soit le locuteur qui exprime ses sentiments => Le pronom "je"`, examples: [] },
-	{ nom: "Burlesque", description: `${LCA} cherche à faire rire le lecteur en dévalorisant des personnes haut placés`, examples: [ "Caricature du président de la république" ] },
-	{ nom: "Héroï-comique", description: `${LCA} faire rire en donnant à un personnage de basse condition l'attitude et le language d'un roi (inverse du registre burlesque)`, examples: [] },
-	{ nom: "Polémique", description: `${LCA} faire participer le lecteur en un débat entre deux opinions opposés`, examples: [ "Pour ou contre le féminisme" ] },
-	{ nom: "Satirique", description: `${LCA} développer la critique d'un personnage, souvent en s'en moquant`, examples: [ "Canard enchainé" ] },
-	{ nom: "Réaliste", description: `${LCA} impressionner le lecteur en décrivant des scènes banales et triviales. Attention: le réel n'est pas réaliste`, examples: [] },
-	{ nom: "Épidictique", description: `${LCA} cherche à écrire UN éloge ou un blâme d'un personnage`, examples: [ "Le portrait du président de la république" ] },
-	{ nom: "Épique", description: `${LCA} créer l'admiration pour un héros qui se bat pour le destin de son peuple. La guerre peut-être métaphorique`, examples: [ "Les épopées: L'Illiade d'Homère, L'Odyssée d'Homère, L'Énéide de Virgile et La Chanson de Roland" ] },
-]
-
-interface BoundRegistre extends Registre {
+interface BoundRegistre extends Definition {
 	nom_field?: string,
 	description_field?: string
 };
 
 let inputs: BoundRegistre[] = registers.map(r => {
-	let ran = Math.random() < 0.5;
+	let ran = Math.random() < 0.8;
 
 	return {
 		nom: r.nom,
@@ -90,7 +77,7 @@ let isSubmitted = false;
 		display: grid;
 		gap: 1rem;
 
-		background-color: #FBFBFB;
+		background-color: #32424A;
 		padding: 1em;
 
 		grid-template-columns: 1fr 3fr 1fr;
@@ -99,23 +86,21 @@ let isSubmitted = false;
 			padding: 0.5em;
 			text-align: left;
 		}
+
+		color: #B0BEC5;
 	}
 
 	.original {
-		color: green;
+		color: #c3e88d;
 	}
 
 	.separated {
-		display: inline-block;
+		display: block;
 		padding: 1em 0;
-		vertical-align: middle;
+		text-align: center;
 
 		&:nth-child(1) {
-			border-right: 1px solid black;
-		}
-
-		&:nth-child(2) {
-			border-left: 1px solid black;
+			border-bottom: 1px solid #1E272C;
 		}
 	}
 
