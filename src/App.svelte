@@ -42,21 +42,21 @@
 	];
 
 	let mouvements: Definition[] = [
-		{ nom: "Renaissance", description: ``, examples: [ "" ] },
-		{ nom: "Humanisme", description: ``, examples: [ "" ] },
-		{ nom: "Pléiade", description: ``, examples: [ "" ] },
-		{ nom: "Baroque", description: ``, examples: [ "" ] },
-		{ nom: "Préciosité", description: ``, examples: [ "" ] },
-		{ nom: "Classicisme", description: ``, examples: [ "" ] },
-		{ nom: "Les Lumères", description: ``, examples: [ "" ] },
-		{ nom: "Romantisme", description: ``, examples: [ "" ] },
-		{ nom: "Réalisme", description: ``, examples: [ "" ] },
-		{ nom: "Naturalisme", description: ``, examples: [ "" ] },
-		{ nom: "Le parmasse", description: ``, examples: [ "" ] },
-		{ nom: "Le Symbolisme", description: ``, examples: [ "" ] },
-		{ nom: "Le surréalisme", description: ``, examples: [ "" ] },
-		{ nom: "Le Nouveau Roman", description: ``, examples: [ "" ] },
-		{ nom: "L'absurde", description: ``, examples: [ "" ] },
+		{ nom: "Renaissance (XVI)", description: `Mouvement qui vise à faire renaître les arts`, examples: [ "Léonard de Vinci" ] },
+		{ nom: "Humanisme (XVI)", description: `Mouvement qui place l'homme au centre de l'univers, et qui encourage l'expérimentation et la science`, examples: [ "Léonard de Vinci" ] },
+		{ nom: "Pléiade (XVI)", description: `Renouveau de la poésie par imitation des grecs, en français`, examples: [ "Ronsard" ] },
+		{ nom: "Baroque (XVII)", description: `Mouvement concentré sur le mouvement et la surchage, qui a pour but d'impressioner et de convertir au catoliscisme`, examples: [ "Corneille" ] },
+		{ nom: "Préciosité (XVII)", description: `Mouvement qui vise la délicatesse et le raffinement`, examples: [ "Madame de Lafayette" ] },
+		{ nom: "Classicisme (2eme moitié du XVII)", description: `Mouvement caractérisé par l'équilibre, la clarté et la rigueur`, examples: [ "Molière", "Racine" ] },
+		{ nom: "Les Lumières (XVIII)", description: `Mouvement visant à illuminer le peuple et à combattre les superstitions et l'obscurantisme`, examples: [ "Voltaire", "Didelot", "Rousseau" ] },
+		{ nom: "Romantisme (1ère moitié du XIX)", description: `Mouvement caractérisé par l'expression de sentiments forts, et le sentiment que le passé ne reviendra pas`, examples: [ "Masset" ] },
+		{ nom: "Réalisme (milieu XIX)", description: `Mouvement qui décrit la réalité de manière terre-à-terre et sans prendre de pincettes`, examples: [ "Balzac" ] },
+		{ nom: "Naturalisme (2ème moitié du XIX)", description: `Mouvement qui s'interesse à l'influence de l'hérédité et du milieu social`, examples: [ "Zola" ] },
+		{ nom: "Le Parmasse (2ème moitié du XIX)", description: `Mouvement qui croit en la beauté pour la beauté, l'art pour l'art et la perfection dans la forme sans le fond`, examples: [ "" ] },
+		{ nom: "Le Symbolisme (fin du XIX)", description: `Mouvement qui cherche à représenter la vie et le monde de façon symbolique et spirituelle`, examples: [ "Apollinaire" ] },
+		{ nom: "Le Surréalisme (1ère moitié du XX)", description: `Mouvement qui rejette les valeurs morales pour l'expression complète des forces psychiques, comme dans un rêve`, examples: [ "Eluard", "Picasso" ] },
+		{ nom: "Le Nouveau Roman (milieu XX)", description: `Mouvement qui rejette les codes et convention du roman habituel, amenant une nouvelle façon d'écrire`, examples: [ "Nathalie Sarraute" ] },
+		{ nom: "L'absurde (2ème moitié XX)", description: `Représentation de sitations absurdes pour dénoncer l'absurdité du monde`, examples: [ "Ionesco" ] },
 	];
 
 </script>
@@ -70,6 +70,10 @@
 
 	<Collapser text="Apprendre les genres...">
 		<Registres registers={ genres } namePercent={ 0 } />
+	</Collapser>
+
+	<Collapser text="Apprendre les mouvements...">
+		<Registres registers={ mouvements } namePercent={ 0.3 } shuffle={ true } />
 	</Collapser>
 </main>
 
