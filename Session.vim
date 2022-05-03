@@ -9,18 +9,20 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +50 /mnt/Projects/Web/revision-francais/src/App.svelte
+badd +32 /mnt/Projects/Web/revision-francais/src/App.svelte
 badd +1 /mnt/Projects/Web/revision-francais/src/Timeline.svelte
 badd +103 /mnt/Projects/Web/revision-francais/src/Registres.svelte
 badd +1 /mnt/Projects/Web/revision-francais/src/defs.ts
-badd +0 term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh
+badd +1 term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh
 badd +8 /mnt/Projects/Web/revision-francais/rollup.config.js
-badd +0 /mnt/Projects/Web/revision-francais/src/main.ts
+badd +1 /mnt/Projects/Web/revision-francais/src/main.ts
 badd +15 /mnt/Projects/Web/revision-francais/public/index.html
-badd +10 /mnt/Projects/Web/revision-francais/public/global.css
+badd +67 /mnt/Projects/Web/revision-francais/public/global.css
+badd +0 ./
+badd +8 /mnt/Projects/Web/revision-francais/src/Collapser.svelte
 argglobal
 %argdel
-$argadd .
+$argadd ./
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
@@ -30,10 +32,7 @@ let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-wincmd _ | wincmd |
-split
-2wincmd k
-wincmd w
+1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -44,9 +43,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 18 + 29) / 59)
-exe '2resize ' . ((&lines * 18 + 29) / 59)
-exe '3resize ' . ((&lines * 18 + 29) / 59)
+exe '1resize ' . ((&lines * 28 + 30) / 60)
+exe '2resize ' . ((&lines * 28 + 30) / 60)
 argglobal
 balt /mnt/Projects/Web/revision-francais/src/defs.ts
 setlocal fdm=expr
@@ -97,33 +95,12 @@ normal! zo
 normal! zo
 102
 normal! zo
-let s:l = 103 - ((14 * winheight(0) + 9) / 18)
+let s:l = 55 - ((0 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 103
-normal! 044|
-wincmd w
-argglobal
-if bufexists(fnamemodify("/mnt/Projects/Web/revision-francais/public/global.css", ":p")) | buffer /mnt/Projects/Web/revision-francais/public/global.css | else | edit /mnt/Projects/Web/revision-francais/public/global.css | endif
-if &buftype ==# 'terminal'
-  silent file /mnt/Projects/Web/revision-francais/public/global.css
-endif
-balt /mnt/Projects/Web/revision-francais/src/App.svelte
-setlocal fdm=expr
-setlocal fde=nvim_treesitter#foldexpr()
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=1
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 67 - ((16 * winheight(0) + 9) / 18)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 67
-normal! 025|
+keepjumps 55
+normal! 01|
 wincmd w
 argglobal
 if bufexists(fnamemodify("/mnt/Projects/Web/revision-francais/src/App.svelte", ":p")) | buffer /mnt/Projects/Web/revision-francais/src/App.svelte | else | edit /mnt/Projects/Web/revision-francais/src/App.svelte | endif
@@ -139,39 +116,38 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-27
+29
 normal! zo
-31
+32
 normal! zo
 36
 normal! zo
-37
+36
 normal! zo
-49
+47
 normal! zo
-56
+54
 normal! zo
-59
+60
 normal! zo
-65
+60
 normal! zo
-let s:l = 53 - ((16 * winheight(0) + 9) / 18)
+let s:l = 19 - ((0 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 53
-normal! 022|
+keepjumps 19
+normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 18 + 29) / 59)
-exe '2resize ' . ((&lines * 18 + 29) / 59)
-exe '3resize ' . ((&lines * 18 + 29) / 59)
+2wincmd w
+exe '1resize ' . ((&lines * 28 + 30) / 60)
+exe '2resize ' . ((&lines * 28 + 30) / 60)
 tabnext
 argglobal
 if bufexists(fnamemodify("term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh", ":p")) | buffer term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh | else | edit term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh | endif
 if &buftype ==# 'terminal'
   silent file term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh
 endif
-balt term:///mnt/Projects/Web/revision-francais//25337:/usr/bin/zsh
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -180,11 +156,11 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 371 - ((55 * winheight(0) + 28) / 56)
+let s:l = 25 - ((24 * winheight(0) + 28) / 57)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 371
+keepjumps 25
 normal! 0
 tabnext 1
 set stal=1

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Registres from "./Registres.svelte";
+	import Collapser from "./Collapser.svelte";
+
 	import type { Definition } from "./defs";
 
 	const LCA = "L'auteur cherche à"
@@ -19,18 +21,56 @@
 		{ nom: "Réaliste", description: `${LCA} impressionner le lecteur en décrivant des scènes banales et triviales. Attention: le réel n'est pas réaliste`, examples: [] },
 		{ nom: "Épidictique", description: `${LCA} cherche à écrire UN éloge ou un blâme d'un personnage`, examples: [ "Le portrait du président de la république" ] },
 		{ nom: "Épique", description: `${LCA} créer l'admiration pour un héros qui se bat pour le destin de son peuple. La guerre peut-être métaphorique`, examples: [ "Les épopées: L'Illiade d'Homère, L'Odyssée d'Homère, L'Énéide de Virgile et La Chanson de Roland" ] },
-	]
+	];
 
-	let showRegistre = true;
+	let genres: Definition[] = [
+		{ nom: "Roman", description: `Récit fictionnel long avec un narrateur`, examples: [ "“Illusions Perdues”, Balzac" ] },
+		{ nom: "Nouvelle", description: `Récit fictionnel court avec un narrateur`, examples: [ "“Le Bohneur”, Maupassant" ] },
+		{ nom: "Conte", description: "Récit fictionnel court ou long, faisant intervenir des éléments merveilleux", examples: [ "“Candide”, Voltaire" ] },
+		{ nom: "Épopée", description: "Long récit poétique d'aventures héroïques où intervient le merveilleux", examples: [ "“Les aventures de Télémaque”, Fénelon" ] },
+		{ nom: "[Auto]Biographie", description: "Récit de la vie d'une personne ou de soi-même", examples: [ "“Colette”, Sédo" ] },
+		{ nom: "Lettres", description: "Œuvre littéraire visant à plair et à émouvoir, contraire aux ouvrage scientifiques", examples: [ "“Lettres Personnes”, Montesquieu" ] },
+		{ nom: "Article de journal", description: "Texte publié dans un journal, pouvant être agrémenté d'images", examples: [ "“J'accuse”, Emile Zola, dans l'Aurore" ] },
+		{ nom: "Essai", description: "Œuvre de réflexion, pouvant être philosophique, historique, scientifique ou politique.", examples: [ "“De l'institution des enfants”, Michel de Montaigne, dans Les Essais" ] },
+		{ nom: "Pièces de théatre", description: "Texte contenant des interactions entres plusieurs personnages (dialogues) visant à etre joué sur scène", examples: [ "“Rodogume”, Pierre Corneille" ] },
+		{ nom: "Poème", description: "Texte rhytmé, contenant souvent des vers", examples: [ "“Au rendez-vous allemand”, Paul Éluard" ] },
+		{ nom: "Chanson", description: "Texte visant à être chanté", examples: [ "“Balance ton Quoi”, Angèle" ] },
+		{ nom: "Journal", description: "Ensemble de notes datées, présentant soubent les actions, réflexions ou sentiments de l'auteur", examples: [ "“Le journal d'Anne-Franck”" ] },
+		{ nom: "Mémoires", description: "Recueil de souvenirs d'une personne à propos d'événements historiques ou anectodiques, publics ou privés", examples: [ "“Les Mémoires d'outre-tombe”, Chateaubriond" ] },
+		{ nom: "Discours", description: "Texte prononcé devant une foule", examples: [ "“Discourd de réception du prix Nobel de la paix”, Malala Yausafrai" ] },
+		{ nom: "Fable", description: "Récit court avec une morale", examples: [ "“La Cour du Lion”, Jean de la Fontaine, dans Fables de la Fontaines" ] }
+	];
+
+	let mouvements: Definition[] = [
+		{ nom: "Renaissance", description: ``, examples: [ "" ] },
+		{ nom: "Humanisme", description: ``, examples: [ "" ] },
+		{ nom: "Pléiade", description: ``, examples: [ "" ] },
+		{ nom: "Baroque", description: ``, examples: [ "" ] },
+		{ nom: "Préciosité", description: ``, examples: [ "" ] },
+		{ nom: "Classicisme", description: ``, examples: [ "" ] },
+		{ nom: "Les Lumères", description: ``, examples: [ "" ] },
+		{ nom: "Romantisme", description: ``, examples: [ "" ] },
+		{ nom: "Réalisme", description: ``, examples: [ "" ] },
+		{ nom: "Naturalisme", description: ``, examples: [ "" ] },
+		{ nom: "Le parmasse", description: ``, examples: [ "" ] },
+		{ nom: "Le Symbolisme", description: ``, examples: [ "" ] },
+		{ nom: "Le surréalisme", description: ``, examples: [ "" ] },
+		{ nom: "Le Nouveau Roman", description: ``, examples: [ "" ] },
+		{ nom: "L'absurde", description: ``, examples: [ "" ] },
+	];
+
 </script>
 
 <main>
 	<h1>Base du Commentaire</h1>
 
-	<p class="collapser" on:click={() => showRegistre = !showRegistre}>{ showRegistre ? '↓' : '→' } Apprendre les registres...</p>
-	{#if showRegistre}
-		<Registres registers={ registers } />
-	{/if}
+	<Collapser text="Apprendre les registre...">
+		<Registres registers={ registers } namePercent={ 0.9 } shuffle={ true } />
+	</Collapser>
+
+	<Collapser text="Apprendre les genres...">
+		<Registres registers={ genres } namePercent={ 0 } />
+	</Collapser>
 </main>
 
 <style type="text/scss">
@@ -51,14 +91,6 @@
 		text-transform: uppercase;
 		font-size: 3em;
 		font-weight: 100;
-	}
-
-	.collapser {
-		user-select: none;
-
-		&:hover {
-			cursor: pointer;
-		}
 	}
 
 	@media (min-width: 640px) {

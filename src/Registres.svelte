@@ -2,6 +2,8 @@
 import type { Definition } from "./defs";
 
 export let registers: Definition[]; 
+export let namePercent: number = 0.5;
+export let shuffle = false;
 
 interface BoundRegistre extends Definition {
 	nom_field?: string,
@@ -9,22 +11,25 @@ interface BoundRegistre extends Definition {
 };
 
 let inputs: BoundRegistre[] = registers.map(r => {
-	let ran = Math.random() < 0.8;
+	let ran = Math.random() > namePercent;
 
 	return {
 		nom: r.nom,
 		description: r.description,
-		nom_field: ran ? null : '',
-		description_field: ran ? '' : null,
+		nom_field: ran ? '' : null,
+		description_field: ran ? null : '',
 		examples: r.examples
 	};
 });
 
 // Shuffle inputs
-inputs = inputs
-	.map(v => ({ v, sort: Math.random() }))
-	.sort((a, b) => a.sort - b.sort)
-	.map(({ v }) => v);
+if(shuffle)
+{
+	inputs = inputs
+		.map(v => ({ v, sort: Math.random() }))
+		.sort((a, b) => a.sort - b.sort)
+		.map(({ v }) => v);
+}
 
 let isSubmitted = false;
 
